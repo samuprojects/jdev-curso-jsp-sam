@@ -4,7 +4,7 @@
   <artifactId>jdev-curso-jsp-sam</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>dev-curso-jsp-sam</name>
+  <name>jdev-curso-jsp-sam</name>
   <description>curso jsp jdev treinamento</description>
   <build>
     <plugins>
