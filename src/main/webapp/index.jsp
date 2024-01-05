@@ -12,13 +12,27 @@
 
 <form action="ServletLogin" method="post">
 
-<input name = "nome">
-<input name = "idade">
+		<table>
+			<tr>
+				<td><label>Login</label></td>
+				<td><input name="Login" type="text"></td>
+			</tr>
 
-<input type = "submit" value = "Enviar">
+			<tr>
+				<td><label>Senha</label></td>
+				<td><input name="senha" type="password"></td>
+			</tr>
+
+			<tr>
+			<td></td>
+				<td><input type="submit" value="Enviar"></td>
+			</tr>
+		</table>
 
 
-</form>
+	</form>
+	
+	<h4>${msg}</h4>
 
 </body>
 </html>
