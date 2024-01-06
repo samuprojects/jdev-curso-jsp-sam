@@ -10,12 +10,13 @@
 
 <h1>Bem vindo ao curso de JSP</h1>
 
+
 <form action="ServletLogin" method="post">
 
 		<table>
 			<tr>
 				<td><label>Login</label></td>
-				<td><input name="Login" type="text"></td>
+				<td><input name="login" type="text"></td>
 			</tr>
 
 			<tr>
