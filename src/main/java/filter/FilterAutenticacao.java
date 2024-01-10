@@ -61,14 +61,17 @@ public class FilterAutenticacao implements Filter {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			
+			RequestDispatcher redirecionar = request.getRequestDispatcher("erro.jsp");
+			request.setAttribute("msg", e.getMessage());
+			redirecionar.forward(request, response);
+			
 			try {
 				connection.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
-		}
-		
-				
+		}				
 	}
 
 	// 	inicia processos ou recursos quando o servidor é carregado, exemplo, conexão com banco	
