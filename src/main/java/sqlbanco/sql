@@ -1,0 +1,33 @@
+postgres 16
+
+CREATE DATABASE curso_jsp
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'pt_BR.UTF-8'
+    LC_CTYPE = 'pt_BR.UTF-8'
+    LOCALE_PROVIDER = 'libc'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+
+CREATE TABLE IF NOT EXISTS public.model_login
+(
+    login character varying(200) COLLATE pg_catalog."default",
+    senha character varying(200) COLLATE pg_catalog."default",
+    CONSTRAINT login_unique UNIQUE (login)
+        INCLUDE(login)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.model_login
+    OWNER to postgres;
+    
+
+INSERT INTO public.model_login(
+	login, senha)
+	VALUES ('admin', 'admin');
+	
+select * from model_login;
