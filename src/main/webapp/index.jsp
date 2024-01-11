@@ -29,7 +29,7 @@ h5{
 
 .msg{
  position: absolute;
- top: 56%;
+ top: 70%;
  left: 33%;
  right: 33%;
  font-size: 15px;
@@ -43,18 +43,24 @@ h5{
 <h5>Bem vindo ao curso de JSP</h5>
 
 
-<form action="ServletLogin" method="post" class="row g-3">
+<form action="ServletLogin" method="post" class="row g-3 needs-validation" novalidate>
 
 <input type="hidden" value="<%= request.getParameter("url") %>" name="url">
 
 <div class="col-md-6">
-	<label class="form-label">Login</label>
-	<input class="form-control" name="login" type="text">
+	<label for="login" class="form-label">Login</label>
+	<input class="form-control" id="login" name="login" type="text" required>
+	<div class="invalid-feedback">
+      Obrigatório
+    </div>
 </div>
 
 <div class="col-md-6">
-	<label class="form-label">Senha</label>
-	<input class="form-control" name="senha" type="password">
+	<label for="senha" class="form-label">Senha</label>
+	<input class="form-control" id="senha" name="senha" type="password" required>
+	<div class="invalid-feedback">
+      Obriqatório
+    </div>
 </div>		
 		
 <input type="submit" value="Acessar" class="btn btn-primary">
@@ -65,5 +71,27 @@ h5{
 	<h5 class="msg">${msg}</h5>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+</script>
 </body>
 </html>
