@@ -29,11 +29,14 @@ h5{
 
 .msg{
  position: absolute;
- top: 70%;
+ top: 10%;
  left: 33%;
  right: 33%;
  font-size: 15px;
- color: red;
+ color: #664d03;
+ background-color: #fff3cd;
+ border-color: #ffecb5;
+ 
 }
 </style>
 	
@@ -47,7 +50,7 @@ h5{
 
 <input type="hidden" value="<%= request.getParameter("url") %>" name="url">
 
-<div class="col-md-6">
+<div class="mb-3">
 	<label for="login" class="form-label">Login</label>
 	<input class="form-control" id="login" name="login" type="text" required>
 	<div class="invalid-feedback">
@@ -55,7 +58,7 @@ h5{
     </div>
 </div>
 
-<div class="col-md-6">
+<div class="mb-3">
 	<label for="senha" class="form-label">Senha</label>
 	<input class="form-control" id="senha" name="senha" type="password" required>
 	<div class="invalid-feedback">
