@@ -24,7 +24,18 @@ public class ServletLogin extends HttpServlet {
 
     // recebe os dados pela url em parametros
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response); // inserindo o doPost resolvemos o problema da tela em branco, porém, o login pode ser feito na url o que não é recomendável
+		
+		String acao = request.getParameter("acao");
+		
+		if (acao != null && acao.isEmpty() && acao.equalsIgnoreCase("logout")) {
+			request.getSession().invalidate(); // invalida a sessão
+			RequestDispatcher redirecionar = request.getRequestDispatcher("index.jsp");
+			redirecionar.forward(request, response);
+		} else {
+			
+		 doPost(request, response); // inserindo o doPost resolvemos o problema da tela em branco, porém, o login pode ser feito na url o que não é recomendável
+		}
+		
 	}
 
 	// recebe os dados enviados por um formulario
