@@ -12,7 +12,7 @@ public class DAOLoginRepository {
 	private Connection connection;
 	
 	public DAOLoginRepository() {
-		connection = SingleConnectionBanco.getcConnection();
+		connection = SingleConnectionBanco.getConnection();
 	}
 	
 	public boolean validarAutenticacao(ModelLogin modelLogin) throws Exception {

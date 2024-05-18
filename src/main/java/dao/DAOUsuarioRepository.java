@@ -12,14 +12,14 @@ public class DAOUsuarioRepository {
 	private Connection connection;
 	
 	public DAOUsuarioRepository() {
-		connection = SingleConnectionBanco.getcConnection();
+		connection = SingleConnectionBanco.getConnection();
 	}
 	
 	public ModelLogin gravarUsuario(ModelLogin objeto) throws Exception {
 		
 			if (objeto.isNovo()) { /*Grava um novo*/
 		
-			String sql = "INSERT INTO model_login(login, senha, nome, email) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO model_login(login, senha, nome, email) VALUES (?, ?, ?, ?);";
 			PreparedStatement preparedSql = connection.prepareStatement(sql);
 			
 			preparedSql.setString(1, objeto.getLogin());
@@ -81,6 +81,16 @@ public class DAOUsuarioRepository {
 		resultado.next(); /* para entrar nos resultados do sql*/
 		return resultado.getBoolean("existe");
 		
+	}
+	
+	public void deletarUser(String idUser) throws Exception {
+		String sql = "DELETE FROM model_login WHERE id = ?;";
+		PreparedStatement prepareSql = connection.prepareStatement(sql);
+		prepareSql.setLong(1, Long.parseLong(idUser));
+		
+		prepareSql.executeUpdate();
+		
+		connection.commit();
 	}
 
 }

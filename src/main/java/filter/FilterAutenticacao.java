@@ -76,7 +76,7 @@ public class FilterAutenticacao implements Filter {
 
 	// 	inicia processos ou recursos quando o servidor é carregado, exemplo, conexão com banco	
 	public void init(FilterConfig fConfig) throws ServletException {
-		connection = SingleConnectionBanco.getcConnection();
+		connection = SingleConnectionBanco.getConnection();
 	}
 
 }
