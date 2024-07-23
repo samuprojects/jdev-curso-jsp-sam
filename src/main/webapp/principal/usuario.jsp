@@ -1,8 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-    
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>    
     
 <!DOCTYPE html>
 <html lang="en">
@@ -92,6 +90,27 @@
                                                 </div>
                                                 </div>
                                                 <span id="msg">${msg}</span>
+												
+												<div style="height: 300px; overflow: scroll" >
+														<table class="table" id="tabelaresultadosview">
+												  <thead>
+												    <tr>
+												      <th scope="col">ID</th>
+												      <th scope="col">Nome</th>
+												      <th scope="col">Ver</th>
+												    </tr>
+												  </thead>
+												  <tbody>
+												    <c:forEach items='${modelLogins}' var="ml">
+														<tr>
+															<td><c:out value="${ml.id}"></c:out></td>
+															<td><c:out value="${ml.nome}"></c:out></td>
+															<td><a class="btn btn-success" href="<%= request.getContextPath() %>/ServletUsuarioController?acao=buscarEditar&id=${ml.id}">Ver</a></td>
+														</tr>
+													</c:forEach>
+												  </tbody>
+														</table>
+														</div>
                                                 
                                     </div>
                                     <!-- Page-body end -->
