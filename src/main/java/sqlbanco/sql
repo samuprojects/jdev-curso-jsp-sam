@@ -35,3 +35,24 @@ INSERT INTO public.model_login(
 	VALUES ('admin', 'admin');
 	
 select * from model_login;
+
+aula22_50
+alter TABLE model_login add column useradmin boolean not null default false;
+select * from model_login where useradmin is false
+select * from model_login where useradmin is true
+select * from model_login where upper(nome) like upper ('%a') and useradmin is false
+select * from model_login where upper(login) = upper('"+login+"') and useradmin is false
+select * from model_login where id = ? and useradmin is false
+DELETE FROM model_login WHERE id = ? and useradmin is false;
+
+aula22_51
+alter table model_login ADD column usuario_id bigint not null default 1;
+alter table model_login ADD constraint usuario_fk FOREIGN key (usuario_id) references model_login (id);
+UPDATE model_login set usuario_id = 2 where id > 8
+
+
+
+
+
+
+
