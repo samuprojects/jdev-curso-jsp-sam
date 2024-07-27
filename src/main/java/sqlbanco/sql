@@ -50,7 +50,8 @@ alter table model_login ADD column usuario_id bigint not null default 1;
 alter table model_login ADD constraint usuario_fk FOREIGN key (usuario_id) references model_login (id);
 UPDATE model_login set usuario_id = 2 where id > 8
 
-
+aula22_53
+alter table model_login ADD column perfil character varying(200);
 
 
 
