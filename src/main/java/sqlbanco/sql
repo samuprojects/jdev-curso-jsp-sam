@@ -53,6 +53,11 @@ UPDATE model_login set usuario_id = 2 where id > 8
 aula22_53
 alter table model_login ADD column perfil character varying(200);
 
+aula22_55
+ALTER TABLE public.model_login ADD COLUMN sexo CHARACTER varying(200);
+UPDATE model_login set perfil = 'AUXILIAR' where perfil is null;
+UPDATE model_login set sexo = 'MASCULINO' where sexo is null;
+
 
 
 
