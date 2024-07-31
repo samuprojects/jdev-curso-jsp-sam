@@ -58,6 +58,10 @@ ALTER TABLE public.model_login ADD COLUMN sexo CHARACTER varying(200);
 UPDATE model_login set perfil = 'AUXILIAR' where perfil is null;
 UPDATE model_login set sexo = 'MASCULINO' where sexo is null;
 
+aula22_56
+alter TABLE model_login add column fotouser text;
+alter TABLE model_login add column extensaofotouser CHARACTER varying(10);
+
 
 
 
