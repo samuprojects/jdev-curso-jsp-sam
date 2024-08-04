@@ -134,11 +134,17 @@ public class ServletUsuarioController extends ServletGenericUtil {
 			if (ServletFileUpload.isMultipartContent(request)) {
 				
 				Part part = request.getPart("fileFoto"); /*Pega a foto da tela*/
-				byte[] foto = IOUtils.toByteArray(part.getInputStream()); /*Converte imagem para byte*/
-				String imageBase64 = "data:image/"+ part.getContentType().split("\\/")[1] + ";base64," + new Base64().encodeBase64String(foto);
 				
-				modelLogin.setFotoUser(imageBase64);
-				modelLogin.setExtensaoFotoUser(part.getContentType().split("\\/")[1]);
+				if (part.getSize() > 0) {
+					
+					byte[] foto = IOUtils.toByteArray(part.getInputStream()); /*Converte imagem para byte*/
+					String imageBase64 = "data:image/"+ part.getContentType().split("\\/")[1] + ";base64," + new Base64().encodeBase64String(foto);
+					
+					modelLogin.setFotoUser(imageBase64);
+					modelLogin.setExtensaoFotoUser(part.getContentType().split("\\/")[1]);
+					
+				}
+				
 				
 			}
 			
