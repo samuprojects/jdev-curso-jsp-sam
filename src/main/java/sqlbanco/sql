@@ -62,6 +62,14 @@ aula22_56
 alter TABLE model_login add column fotouser text;
 alter TABLE model_login add column extensaofotouser CHARACTER varying(10);
 
+aula22_61
+ALTER TABLE public.model_login ADD COLUMN cep CHARACTER varying(250);
+ALTER TABLE public.model_login ADD COLUMN logradouro CHARACTER varying(250);
+ALTER TABLE public.model_login ADD COLUMN bairro CHARACTER varying(250);
+ALTER TABLE public.model_login ADD COLUMN localidade CHARACTER varying(250);
+ALTER TABLE public.model_login ADD COLUMN uf CHARACTER varying(250);
+ALTER TABLE public.model_login ADD COLUMN numero CHARACTER varying(250);
+
 
 
 
