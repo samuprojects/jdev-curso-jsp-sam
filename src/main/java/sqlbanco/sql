@@ -73,6 +73,9 @@ ALTER TABLE public.model_login ADD COLUMN numero CHARACTER varying(250);
 aula22_62
 SELECT * FROM model_login WHERE usuario_id = 1 ORDER BY nome OFFSET 0 LIMIT 5
 
+aula22_63
+select count(1) from model_login where usuario_id = 1;
+
 
 
 
