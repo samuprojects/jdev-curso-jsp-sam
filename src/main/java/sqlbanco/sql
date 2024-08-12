@@ -76,7 +76,27 @@ SELECT * FROM model_login WHERE usuario_id = 1 ORDER BY nome OFFSET 0 LIMIT 5
 aula22_63
 select count(1) from model_login where usuario_id = 1;
 
+aula22_68
+CREATE SEQUENCE IF NOT EXISTS public.telefone_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
 
+    
+create table telefone(
+
+id integer not null default nextval('telefone_seq'::regclass),
+numero character varying(50) not null,
+usuario_pai_id bigint not null,
+usuario_cad_id bigint not null,
+
+constraint telefone_pkey primary key (id),
+constraint usuario_pai_fk foreign key (usuario_pai_id) references model_login (id),
+constraint usuario_cad_fk foreign key (usuario_cad_id) references model_login (id)
+
+)
 
 
 
