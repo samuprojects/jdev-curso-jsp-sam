@@ -98,5 +98,6 @@ constraint usuario_cad_fk foreign key (usuario_cad_id) references model_login (i
 
 )
 
-
+aula22_73
+alter table model_login add column datanascimento date;
 
