@@ -101,3 +101,10 @@ constraint usuario_cad_fk foreign key (usuario_cad_id) references model_login (i
 aula22_73
 alter table model_login add column datanascimento date;
 
+aula22_74
+alter table model_login add column rendamensal numeric(6,3);
+devido erro posterior excluído a coluna do comando acima e refeito utilizando
+alter table model_login add column rendamensal numeric;
+devido novo erro excluído e alterado para
+alter table model_login add column rendamensal double precision;
+
