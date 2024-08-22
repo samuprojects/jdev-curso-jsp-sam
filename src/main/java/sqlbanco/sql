@@ -108,3 +108,8 @@ alter table model_login add column rendamensal numeric;
 devido novo erro excluído e alterado para
 alter table model_login add column rendamensal double precision;
 
+aula22_89
+select avg (rendamensal) as media_salarial, perfil from model_login where usuario_id = 1 group by perfil
+
+
+
