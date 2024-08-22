@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rel-user-jsp" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="67580867-6ff5-46c1-8a1c-3af1f368a57f">
+	<parameter name="PARAM_SUB_REPORT" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -104,7 +105,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="22" splitType="Stretch">
+		<band height="50" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="240" height="20" uuid="e28875d0-2d45-4f42-aa30-12c7cb271d5c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6d9b3476-9aa5-42bd-b272-a3d892f9fae9"/>
@@ -120,6 +121,11 @@
 			<line>
 				<reportElement x="2" y="21" width="551" height="1" uuid="21d6db77-0b35-447d-a897-4851d115251c"/>
 			</line>
+			<subreport>
+				<reportElement x="0" y="22" width="553" height="28" uuid="9b9c3d06-c714-4800-8eaa-c071f826bc57"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{telefones})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{PARAM_SUB_REPORT} + "sub_report_user.jasper"]]></subreportExpression>
+			</subreport>
 		</band>
 	</detail>
 	<summary>
