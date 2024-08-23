@@ -111,5 +111,24 @@ alter table model_login add column rendamensal double precision;
 aula22_89
 select avg (rendamensal) as media_salarial, perfil from model_login where usuario_id = 1 group by perfil
 
+aula22_93
+CREATE SEQUENCE IF NOT EXISTS public.versionadorbanco_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+    
+CREATE TABLE IF NOT EXISTS public.versionadorbanco
+(
+    id integer NOT NULL DEFAULT nextval('versionadorbanco_seq'::regclass),
+	arquivo_sql character varying(50) not null,
+	constraint id_pk primary key (id)	
+)
+
+INSERT INTO versionadorbanco(arquivo_sql) VALUES (?);
+
+ALTER TABLE model_login ADD COLUMN cpf character varying(11);
+
 
 
