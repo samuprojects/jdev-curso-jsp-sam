@@ -104,29 +104,45 @@
 
 function gerarGrafico() {
 	
-	var myChart = new Chart(
-			document.getElementById('myChart'),
-			{
-				type: 'line',
-				data: {
-					labels:[
-						'A',
-						'B',
-						'C',
-						'D',
-						'E',
-						'F',
-					],
-					datasets: [{
-						label: 'Gráfico de Média Salarial por tipo',
-						backgroundColor: 'rgb(255, 99, 132)',
-						borderColor: 'rgb(255, 99, 132)',
-						data: [0, 10, 5, 2, 20, 30, 45],
-					}]
-			},
-				options: {}
+	var urlAction = document.getElementById('formUser').action;
+	var dataInicial = document.getElementById('dataInicial').value;
+	var dataFinal = document.getElementById('dataFinal').value;
+	
+	$.ajax({
+		
+		method: "get",
+		url: urlAction,
+		data: "dataInicial=" + dataInicial + '&dataFinal=' + dataFinal + '&acao=graficoSalario',
+		success: function (response){
+			
+			var json = JSON.parse(response);
+			
+			var myChart = new Chart(
+					document.getElementById('myChart'),
+					{
+						type: 'line',
+						data: {
+							labels:json.perfis,
+							datasets: [{
+								label: 'Gráfico de Média Salarial por tipo',
+								backgroundColor: 'rgb(255, 99, 132)',
+								borderColor: 'rgb(255, 99, 132)',
+								data: json.salarios,
+							}]
+					},
+						options: {}
+				}
+			);
+			
 		}
-	);
+	
+	}).fail(function(xhr, status, errorThrown){
+		alert('Erro ao buscar dados para o gráfico ' + xhr.responseText);
+	});
+	
+	
+	
+
 }
 
 $( function() {

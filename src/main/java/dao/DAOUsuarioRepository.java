@@ -36,7 +36,7 @@ public class DAOUsuarioRepository {
 		BeanDtoGraficoSalarioUser beanDtoGraficoSalarioUser = new BeanDtoGraficoSalarioUser();
 				
 		while (resultSet.next()) {
-			Double media_salarial = resultSet.getDouble("media_salaria");
+			Double media_salarial = resultSet.getDouble("media_salarial");
 			String perfil = resultSet.getString("perfil");
 			
 			perfis.add(perfil);
